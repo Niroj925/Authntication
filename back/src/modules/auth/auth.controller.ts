@@ -3,11 +3,7 @@ import { AuthService } from "./auth.service";
 import { CreateAuthDto } from "./dto/create-auth.dto";
 import { UpdateAuthDto } from "./dto/update-auth.dto";
 import { SkipThrottle,Throttle } from "@nestjs/throttler";
-// import { RtGuard } from "src/helper/middlewares/auth/guard";
 import { Response } from "express";
-import { Jwt } from "jsonwebtoken";
-import { JwtGuard } from "src/helper/middlewares/auth/guards/jwt.guard";
-import { RtGuard } from "src/helper/middlewares/auth/guard";
 
 @SkipThrottle()
 @Controller('auth') 
@@ -30,21 +26,6 @@ export class AuthController{
             return this.authService.signIn(response,dto);
         }
 
-        @Get('token')
-        async login(@Req() req:any) {
-         console.log(req.cookies)
-          return {};
-        }
-
-        @UseGuards(JwtGuard)
-        @Get('users')
-        async getUsers(@Req() req:any) {
-            console.log('cookie:',req.cookies)
-            const user=req.user;
-            console.log(user);
-            //  return {success:true};
-            return this.authService.getUser(user.sub);
-           }
 
         @Post('logout')
         async logout(@Res({ passthrough: true }) response: any) {
@@ -57,8 +38,6 @@ export class AuthController{
         @SkipThrottle({default:false})
         @Post('refresh')
         async refrshToken(@Req() req:any) {
-            // const cookie=req.cookies
-            // console.log('cookie:',req.cookies)
           return this.authService.refreshToken(req.cookies);
         }
 }

@@ -4,10 +4,7 @@ import { CreateUserinfoDto } from './dto/create-userinfo.dto';
 import { UpdateUserinfoDto } from './dto/update-userinfo.dto';
 import { Userinfo } from './entities/userinfo.entity';
 import { AtGuard} from 'src/helper/middlewares/auth/guard';
-// import { JwtGuard } from 'src/helper/middlewares/auth/guards/jwt.guard';
-import { JwtGuard } from 'src/helper/middlewares/auth/guards/jwt.guard';
 
-// @UseGuards(JwtGuard)
 @UseGuards(AtGuard)
 @Controller('user')
 export class UserinfoController {
