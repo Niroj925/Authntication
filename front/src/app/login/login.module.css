@@ -1,0 +1,91 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    /* margin-top: 100px; */
+  }
+  
+  .formContainer {
+    background-color: var(--box);
+    width: 300px;
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form input {
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--input);
+    color: var(--boxtext);
+  }
+  
+  .form input::placeholder {
+    color: #555454;
+  }
+  
+  .login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    color: var(--boxtext);
+  }
+  
+  /* .form button{
+      padding: 15px;
+      background-color: var(--nav);
+      color: var(--btntext);
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  } */
+  .unclick {
+    padding: 15px;
+    background-color: #555454;
+    color: var(--btntext);
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .clicked {
+      background-color: var(--nav);
+    padding: 15px;
+    opacity: 0.5; 
+    color: var(--btntext);
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .forgot {
+    color: #888a8a;
+  }
+  
+  .forgot:hover {
+    text-decoration: underline;
+    color: var(--bg);
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  }
+  
